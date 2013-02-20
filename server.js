@@ -1,14 +1,14 @@
-var express = require("express")
+var express = require('express')
   , api = require('./getfriends')
   , app = express();
 
 // Setup middleware
 app.use(express.bodyParser());
-app.use(express.cookieParser("friend much?"));
+app.use(express.cookieParser('friend much?'));
 app.use(express.session());
 app.use(express.static(__dirname));
 
-app.get("/getfriends", function(req, res) {
+app.get('/getfriends', function(req, res) {
   // Check to ensure user has a valid access_token
   if (req.session.oauth && req.session.oauth.access_token) {
 
@@ -23,7 +23,7 @@ app.get("/getfriends", function(req, res) {
 
 // Routes for OAuth calls
 var oauth = require('./oauth');
-app.get("/login", oauth.login);
-app.get("/callback", oauth.callback);
+app.get('/login', oauth.login);
+app.get('/callback', oauth.callback);
 
 app.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
