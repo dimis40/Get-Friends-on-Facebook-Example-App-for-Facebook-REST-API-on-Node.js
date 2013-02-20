@@ -7,7 +7,7 @@ A code example written in node.js that uses the Facebook API to get a list of fr
 
 * request - a HTTP request client module used to make calls to Twitter's API
 
-* qs - 
+* qs - a querystring parser
 
 Project contents
 ----------------
@@ -16,7 +16,7 @@ Project contents
 
 * server.js - contains the node.js code used to setup http server and handle routes for OAuth and to get list of friends
 
-* oauth.js - contains the node.js code used to perform the steps needed to OAuth on Facebook and retrieve an access_token
+* oauth.js - contains the node.js code used to perform OAuth on Facebook and retrieve an access_token
   
 * index.html - contains html and some client-side JavaScript code that is first loaded when the application is run
   
