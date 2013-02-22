@@ -22,9 +22,9 @@ function login(req, res) {
 
 function callback(req, res) {
 	var code = req.query.code
-	  , state = req.query.state
-	  , errorreason = req.query.error_reason
-	  , error = req.query.error;
+      , state = req.query.state
+      , errorreason = req.query.error_reason
+      , error = req.query.error;
 
 	if (state == req.session.oauth.state) {
 
