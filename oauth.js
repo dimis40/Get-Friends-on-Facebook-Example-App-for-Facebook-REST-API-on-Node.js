@@ -43,7 +43,7 @@ function callback(req, res) {
 				console.log("Connected to Facebook");
 				// close the popup
 				var output = '<html><head></head><body onload="window.close();">Closing this window</body></html>';
-                res.writeHead(200, {'Content-Type': 'text/html'});
+				res.writeHead(200, {'Content-Type': 'text/html'});
 				res.end(output);
 			});
 
