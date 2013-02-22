@@ -2,7 +2,6 @@ var request = require('request');
 
 function getFriends(access_token, response) {
 
-  
   // Specify the URL and query string parameters needed for the request
   var url = 'https://graph.facebook.com/me/friends';
   var qs = {
@@ -21,8 +20,8 @@ function getFriends(access_token, response) {
     // Go through list of friends and generate output
     for (var i=0; i < friends.data.length; i++) {
 	  picture = friends.data[i].picture.data.url;
-	  name = friends.data[i].name;
-	  output += '<tr><td><img src="' + picture + '"</td><td><strong>' + name + '</strong></td></tr>';
+      name = friends.data[i].name;
+      output += '<tr><td><img src="' + picture + '"</td><td><strong>' + name + '</strong></td></tr>';
 	}
 
     // Send the output as response
