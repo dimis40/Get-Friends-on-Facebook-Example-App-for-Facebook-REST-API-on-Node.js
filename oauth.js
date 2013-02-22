@@ -34,7 +34,7 @@ function callback(req, res) {
 				redirect_uri: callbackURL,
 				client_secret: APP_SECRET,
 				code: code
-			}
+			};
 
 			request.get({url:'https://graph.facebook.com/oauth/access_token',qs:params}, function(err, resp, body) {
 				var results = qs.parse(body);
@@ -43,7 +43,7 @@ function callback(req, res) {
 
 				console.log("Connected to Facebook");
 				// close the popup
-				var output = '<html><head></head><body onload="window.close();">Closing this window</body></html>'
+				var output = '<html><head></head><body onload="window.close();">Closing this window</body></html>';
 				res.end(output);
 			});
 
