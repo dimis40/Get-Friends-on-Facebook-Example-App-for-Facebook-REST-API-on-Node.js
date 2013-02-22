@@ -2,6 +2,7 @@ var request = require('request');
 
 function getFriends(access_token, response) {
 
+  
   // Specify the URL and query string parameters needed for the request
   var url = 'https://graph.facebook.com/me/friends';
   var qs = {
