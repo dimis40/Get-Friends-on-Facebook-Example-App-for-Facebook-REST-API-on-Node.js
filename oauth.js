@@ -22,20 +22,23 @@ function login(req, res) {
 
 function callback(req, res) {
 	var code = req.query.code
-      , state = req.query.state
-      , errorreason = req.query.error_reason
-      , error = req.query.error;
+    , state = req.query.state
+    , errorreason = req.query.error_reason
+    , error = req.query.error;
 
 	if (state == req.session.oauth.state) {
 
 		if (code !== undefined) {
-			var params = {
+      
+			var url = 'https://graph.facebook.com/oauth/access_token';
+      var params = {
 				client_id: APP_ID,
 				redirect_uri: callbackURL,
 				client_secret: APP_SECRET,
 				code: code
 			};
-			request.get({url:'https://graph.facebook.com/oauth/access_token',qs:params}, function(err, resp, body) {
+      
+			request.get({url:url, qs:params}, function(err, resp, body) {
 				var results = qs.parse(body);
 				req.session.oauth.access_token = results.access_token;
 				req.session.oauth.expires = results.expires;
