@@ -49,7 +49,8 @@ function callback(req, res) {
 				req.session.oauth.expires = results.expires;
 
 				console.log("Connected to Facebook");
-				// close the popup
+				
+        // Close the popup
 				var output = '<html><head></head><body onload="window.close();">Closing this window</body></html>';
 				res.writeHead(200, {'Content-Type': 'text/html'});
 				res.end(output);
