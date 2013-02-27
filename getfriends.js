@@ -11,15 +11,20 @@ function getFriends(access_token, response) {
 
   // Send the request
   request.get({url:url, qs:qs}, function(err, resp, friends) {
-
+ 
+    // Handle any errors that occur
+    if (err) return console.error("Error occured: ", err);
     friends = JSON.parse(friends);
+    if (friends.error) return console.error("Error returned from facebook: ", friends.error);
+    
+    // Generate output
     var output = '<table>'
       , picture = ''
       , name = '';
       
     // Go through list of friends and generate output
     for (var i=0; i < friends.data.length; i++) {
-	  picture = friends.data[i].picture.data.url;
+    picture = friends.data[i].picture.data.url;
       name = friends.data[i].name;
       output += '<tr><td><img src="' + picture + '"</td><td><strong>' + name + '</strong></td></tr>';
 	}
