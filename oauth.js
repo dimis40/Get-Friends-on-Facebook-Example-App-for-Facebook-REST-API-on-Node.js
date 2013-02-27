@@ -39,7 +39,12 @@ function callback(req, res) {
 			};
       
 			request.get({url:url, qs:params}, function(err, resp, body) {
+        // Handle any errors that may occur
+        if (err) return console.error("Error occured: ", err);
 				var results = qs.parse(body);
+        if (results.error) return console.error("Error returned from Facebook: ", results.error);
+        
+        // Retrieve access_token and store in the session
 				req.session.oauth.access_token = results.access_token;
 				req.session.oauth.expires = results.expires;
 
