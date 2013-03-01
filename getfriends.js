@@ -30,6 +30,7 @@ function getFriends(access_token, response) {
 	}
 
     // Send the output as response
+    response.writeHead(200, {'Content-Type': 'text/html'});
     response.end(output + '</table>');
   });
 }
