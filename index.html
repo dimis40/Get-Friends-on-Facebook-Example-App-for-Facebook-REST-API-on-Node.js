@@ -13,7 +13,7 @@
       }); 
     });
 
-    interval = window.setInterval((function() {
+    var interval = window.setInterval((function() {
       if (w.closed) {
         window.clearInterval(interval);       
         window.location = '/getfriends';
