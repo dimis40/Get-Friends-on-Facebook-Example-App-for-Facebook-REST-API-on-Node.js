@@ -26,7 +26,7 @@ function callback(req, res) {
     , errorreason = req.query.error_reason
     , error = req.query.error;
 
-	if (state == req.session.oauth.state) {
+	if (req.session.oauth && state == req.session.oauth.state) {
 
 		if (code !== undefined) {
       
