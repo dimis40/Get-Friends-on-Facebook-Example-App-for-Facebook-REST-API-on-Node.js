@@ -3,7 +3,6 @@ var express = require('express')
   , app = express();
 
 // Setup middleware
-app.use(express.bodyParser());
 app.use(express.cookieParser('friend much?'));
 app.use(express.session());
 app.use(express.static(__dirname));
@@ -12,6 +11,7 @@ app.get('/getfriends', function(req, res) {
   // Check to ensure user has a valid access_token
   if (req.session.oauth && req.session.oauth.access_token) {
 
+      // Retrieve list of facebook friends (see 'getfriends.js')
       api.getFriends(req.session.oauth.access_token, res);
   
   } else {
