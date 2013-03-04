@@ -6,13 +6,13 @@ var express = require('express')
 // Setup middleware
 app.use(express.static(__dirname));
 
-var access_token = oauth.access_token;
-
 app.get('/getfriends', function(req, res) {
   // Check to ensure user has a valid access_token
+  console.log("access_token = ", oauth.access_token);
   if (access_token) {
 
       // Retrieve list of facebook friends (see 'getfriends.js')
+      console.log("access_token = ", access_token);
       api.getFriends(access_token, res);
   
   } else {

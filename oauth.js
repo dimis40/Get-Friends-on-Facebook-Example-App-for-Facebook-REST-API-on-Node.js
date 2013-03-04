@@ -6,14 +6,16 @@ var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
   , APP_SECRET = 'FACEBOOK_APP_SECRET';
 
 
-var access_token = '';
-var expires = '';
-var state = '';
+var access_token;
+var expires;
+var state;
 
 
 function login(req, res) {
   
 	state = Math.floor(Math.random()*1e19);
+  access_token = '';
+  expires = '';
 	
 	var params = {
 		client_id: APP_ID,
