@@ -6,13 +6,14 @@ var express = require('express')
 // Setup middleware
 app.use(express.static(__dirname));
 
+var access_token = oauth.access_token;
 
 app.get('/getfriends', function(req, res) {
   // Check to ensure user has a valid access_token
-  if (oauth.access_token) {
+  if (access_token) {
 
       // Retrieve list of facebook friends (see 'getfriends.js')
-      api.getFriends(oauth.access_token, res);
+      api.getFriends(access_token, res);
   
   } else {
       console.log("Couldn't verify if user was authenticated. Redirecting to /");

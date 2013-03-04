@@ -6,13 +6,14 @@ var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
   , APP_SECRET = 'FACEBOOK_APP_SECRET';
 
 
-var access_token = '';
-var expires = '';
-var state = '';
+exports.access_token = '';
+exports.expires = '';
+exports.state = '';
+
 
 function login(req, res) {
   
-	state = (Math.floor(Math.random()*1e19));
+	state = Math.floor(Math.random()*1e19);
 	
 	var params = {
 		client_id: APP_ID,
@@ -67,13 +68,10 @@ function callback(req, res) {
 		}
 
 	} else {
-		console.error('Mismatch with variable "state"');
+		console.error('Mismatch with variable "state"; redirecting to /');
 		res.redirect('/');
 	}
 }
 
 exports.login = login;
 exports.callback = callback;
-exports.state = state;
-exports.access_token = access_token;
-exports.expires = expires;
