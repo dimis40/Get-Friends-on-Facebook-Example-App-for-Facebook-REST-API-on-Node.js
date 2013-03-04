@@ -6,9 +6,9 @@ var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
   , APP_SECRET = 'FACEBOOK_APP_SECRET';
 
 
-exports.access_token = '';
-exports.expires = '';
-exports.state = '';
+var access_token = '';
+var expires = '';
+var state = '';
 
 
 function login(req, res) {
@@ -75,3 +75,5 @@ function callback(req, res) {
 
 exports.login = login;
 exports.callback = callback;
+exports.access_token = access_token;
+exports.state = state;
