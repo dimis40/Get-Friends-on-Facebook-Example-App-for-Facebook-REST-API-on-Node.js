@@ -6,6 +6,7 @@ var express = require('express')
 // Setup middleware
 app.use(express.static(__dirname));
 
+
 app.get('/getfriends', function(req, res) {
   // Check to ensure user has a valid access_token
   console.log("access_token = ", oauth.access_token);

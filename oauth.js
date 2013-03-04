@@ -55,9 +55,9 @@ function callback(req, res) {
         // Retrieve access_token and store in the session
 				access_token = results.access_token;
 				expires = results.expires;
-
+        
 				console.log("Connected to Facebook");
-				
+				console.log("access_token: ", access_token);
         // Close the popup
 				var output = '<html><head></head><body onload="window.close();">Closing this window</body></html>';
 				res.writeHead(200, {'Content-Type': 'text/html'});
