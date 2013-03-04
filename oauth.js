@@ -5,14 +5,19 @@ var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
   , APP_ID = 'FACEBOOK_APP_ID'
   , APP_SECRET = 'FACEBOOK_APP_SECRET';
 
+
+var access_token = '';
+var expires = '';
+var state = '';
+
 function login(req, res) {
-	req.session.oauth = {};
-	req.session.oauth.state = (Math.floor(Math.random()*1e19));
+  
+	state = (Math.floor(Math.random()*1e19));
 	
 	var params = {
 		client_id: APP_ID,
 		redirect_uri: callbackURL,
-		state: req.session.oauth.state,
+		state: state,
 		display: 'popup'
 	};
 
@@ -22,11 +27,11 @@ function login(req, res) {
 
 function callback(req, res) {
 	var code = req.query.code
-    , state = req.query.state
+    , cb_state = req.query.state
     , errorreason = req.query.error_reason
     , error = req.query.error;
 
-	if (req.session.oauth && state == req.session.oauth.state) {
+	if (state == cb_state) {
 
 		if (code !== undefined) {
       
@@ -45,8 +50,8 @@ function callback(req, res) {
         if (results.error) return console.error("Error returned from Facebook: ", results.error);
         
         // Retrieve access_token and store in the session
-				req.session.oauth.access_token = results.access_token;
-				req.session.oauth.expires = results.expires;
+				access_token = results.access_token;
+				expires = results.expires;
 
 				console.log("Connected to Facebook");
 				
@@ -69,3 +74,6 @@ function callback(req, res) {
 
 exports.login = login;
 exports.callback = callback;
+exports.state = state;
+exports.access_token = access_token;
+exports.expires = expires;
