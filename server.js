@@ -4,7 +4,11 @@ var express = require('express')
 
 // Setup middleware
 app.use(express.cookieParser('friend much?'));
-app.use(express.session());
+app.use(express.session({
+  cookie: {
+    httpOnly: false
+  }
+}));
 app.use(express.static(__dirname));
 
 app.get('/getfriends', function(req, res) {
