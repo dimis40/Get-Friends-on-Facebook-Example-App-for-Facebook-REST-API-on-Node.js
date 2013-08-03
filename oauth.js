@@ -2,7 +2,7 @@ var request = require('request')
   , qs = require('qs');
 
 //var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
-var callbackURL = 'http://vast-shelf-2878.herokuapp.com'/callback'
+var callbackURL = 'http://vast-shelf-2878.herokuapp.com'
   , APP_ID = '491277467614396'
   , APP_SECRET = 'a860213c2c4d335243b18ced5297b546';
 
