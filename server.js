@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 var express = require('express')
   , api = require('./getfriends')
   , oauth = require('./oauth')
