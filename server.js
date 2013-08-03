@@ -26,4 +26,8 @@ app.get('/getfriends', function(req, res) {
 app.get('/login', oauth.login);
 app.get('/callback', oauth.callback);
 
-app.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
+/*app.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);*/
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+})

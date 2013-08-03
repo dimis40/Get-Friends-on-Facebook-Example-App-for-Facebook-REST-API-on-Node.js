@@ -2,8 +2,8 @@ var request = require('request')
   , qs = require('qs');
 
 var callbackURL = 'http://'+process.env.OPENSHIFT_APP_DNS+'/callback'
-  , APP_ID = 'FACEBOOK_APP_ID'
-  , APP_SECRET = 'FACEBOOK_APP_SECRET';
+  , APP_ID = '491277467614396'
+  , APP_SECRET = 'a860213c2c4d335243b18ced5297b546';
 
 
 var access_token = '';
