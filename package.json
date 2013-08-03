@@ -1,11 +1,22 @@
 {
-  "name": "get-friends-on-facebook",
+  "name": "getfriends",
   "version": "0.0.1",
-  "description": "Code example demonstrating how to retrieve list of friends using the Facebook API",
-  "dependencies": {
-	"request": "*",
-	"express": "*",
-	"qs": "*"
-   },
-  "engine": "node 0.6.x"
+  "description": "facebook",
+  "main": "server.js",
+  "scripts": {
+    "test": "def",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dimis40/Get-Friends-on-Facebook-Example-App-for-Facebook-REST-API-on-Node.js"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "dimis",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/dimis40/Get-Friends-on-Facebook-Example-App-for-Facebook-REST-API-on-Node.js/issues"
+  }
 }
