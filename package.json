@@ -1,20 +1,23 @@
 {
-  "name": "getfriends",
+  "name": "Get-Friends-on-Facebook-Example-App-for-Facebook-REST-API-on-Node.js",
   "version": "0.0.1",
-  "description": "facebook",
+  "description": "Get friends on Facebook =======================",
   "main": "server.js",
+  "dependencies": {
+    "qs": "~0.6.5",
+    "request": "~2.25.0",
+    "express": "~3.3.4"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "def",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dimis40/Get-Friends-on-Facebook-Example-App-for-Facebook-REST-API-on-Node.js"
   },
-  "keywords": [
-    "node.js"
-  ],
-  "author": "dimis",
+  "author": "",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/dimis40/Get-Friends-on-Facebook-Example-App-for-Facebook-REST-API-on-Node.js/issues"
